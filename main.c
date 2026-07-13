@@ -1,17 +1,16 @@
 #include <stdio.h>
 
 int GetUserPosInput();
-int DoubleValue(int *number);
+void DoubleValue(int *number);
 
 int main(void) {
     printf("Please enter a positive number: ");
     int number = GetUserPosInput();
-    int *ptr = &number;
 
     printf("Entered number is: %d", number);
 
-    DoubleValue(ptr);
-    printf("\nDoubled value is: %d", *ptr);
+    DoubleValue(&number);
+    printf("\nDoubled value is: %d", number);
     return 0;
 }
 
@@ -29,8 +28,7 @@ int GetUserPosInput() {
     return input;
 }
 
-int DoubleValue(int *number)
+void DoubleValue(int *number)
 {
     *number *=2;
-    return *number;
 }
